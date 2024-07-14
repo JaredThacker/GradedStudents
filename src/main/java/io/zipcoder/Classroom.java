@@ -52,7 +52,6 @@ public class Classroom {
                 break;
             }
         }
-
     }
 
     public Student[] getStudentsByScore(){
@@ -82,7 +81,7 @@ public class Classroom {
             else
                 gradeBook.put(student, 'F');
 
-        }
+            }
         return gradeBook;
         }
     }

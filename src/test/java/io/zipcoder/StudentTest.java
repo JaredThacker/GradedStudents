@@ -25,10 +25,6 @@ public class StudentTest {
     }
 
     @Test
-    public void getExamScores() {
-    }
-
-    @Test
     public void addExamScore() {
     }
 

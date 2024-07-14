@@ -33,19 +33,15 @@ public class Student implements Comparable<Student> {
         this.lastName = lastName;
     }
 
-//    public String getExamScores(){
-//        String scores = "";
-//        int i = 1;
-//        for (double score : examScores){
-//            scores += "Exam" + i + ":" + score;
-//            i++;
-//            scores += "\n";
-//        }
-//        return scores;
-//    }
-
-    public ArrayList<Double> getExamScores(){
-        return examScores;
+    public String getExamScores(){
+        String scores = "";
+        int i = 1;
+        for (double score : examScores){
+            scores += "Exam" + i + ":" + score;
+            i++;
+            scores += "\n";
+        }
+        return scores;
     }
 
     public void addExamScore(double examScore){
@@ -77,7 +73,6 @@ public class Student implements Comparable<Student> {
         sb.append("Student Name: ").append(firstName).append(" ").append(lastName).append("\n");
         sb.append("> Average Score: ").append(getAverageExamScore()).append("\n");
         sb.append("> Exam Scores: ").append(getExamScores()).append("\n");
-        sb.append(getExamScores());
         return sb.toString();
     }
 
