@@ -1,8 +1,9 @@
 package io.zipcoder;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Student {
+public class Student implements Comparable<Student> {
     private String firstName;
     private String lastName;
     ArrayList<Double> examScores;
@@ -10,6 +11,10 @@ public class Student {
     public Student(String firstName, String lastName, Double[] examScores) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public Student(){
+
     }
 
     public String getFirstName() {
@@ -28,20 +33,20 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getExamScores(){
-        String scores = "";
-        int i = 1;
-        for (double score : examScores){
-            scores += "Exam" + i + ":" + score;
-            i++;
-            scores += "\n";
-        }
-        return scores;
-    }
-
-//    public ArrayList<Double> getExamScores(){
-//        return examScores;
+//    public String getExamScores(){
+//        String scores = "";
+//        int i = 1;
+//        for (double score : examScores){
+//            scores += "Exam" + i + ":" + score;
+//            i++;
+//            scores += "\n";
+//        }
+//        return scores;
 //    }
+
+    public ArrayList<Double> getExamScores(){
+        return examScores;
+    }
 
     public void addExamScore(double examScore){
         examScores.add(examScore);
@@ -57,6 +62,9 @@ public class Student {
 
     public double getAverageExamScore(){
         double sum = 0;
+        if(examScores.isEmpty()){
+            return 0.0;
+        }
         for(double scores : examScores){
             sum += scores;
         }
@@ -71,6 +79,10 @@ public class Student {
         sb.append("> Exam Scores: ").append(getExamScores()).append("\n");
         sb.append(getExamScores());
         return sb.toString();
-//        return firstName + lastName + getAverageExamScore() + getExamScores();
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return (this.getAverageExamScore() < o.getAverageExamScore()) ? (int)this.getAverageExamScore() : (int)o.getAverageExamScore();
     }
 }
