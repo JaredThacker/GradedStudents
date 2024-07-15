@@ -17,6 +17,12 @@ public class Student implements Comparable<Student> {
 
     }
 
+    public Student(String firstName, String lastName, ArrayList<Double> examScores) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.examScores = examScores;
+    }
+
     public String getFirstName() {
         return firstName;
     }
